@@ -26,7 +26,7 @@ This document is the Signatory Rights Data Rulebook. It contains requirements sp
 [[Topic 10](https://github.com/eu-digital-identity-wallet/eudi-doc-architecture-and-reference-framework/blob/main/docs/annexes/annex-2/annex-2-high-level-requirements.md#a2310-topic-10---issuing-a-pid-or-attestation-to-the-eudi-wallet)/[23](https://github.com/eu-digital-identity-wallet/eudi-doc-architecture-and-reference-framework/blob/main/docs/annexes/annex-2/annex-2-high-level-requirements.md#a2310-topic-10---issuing-a-pid-or-attestation-to-the-eudi-wallet)] in the ARF 1.4 specifies that attestation must be issued in the [SD-JWT VC] format amongst other. This rulebook supports the [SD-JWT VC] requirements.
 
 ### 1.2 Background
-The need of a Signatory Rights attestation have been expressed by EWC business scenarios owners and Business Registries. The diversity and complexity of rights and powers over companies in the EU justifies the creation of an attestation that allows the identification of the persons that have a statutory right over the company.
+The need of a Signatory Rights attestation has been expressed by EWC business scenarios owners and Business Registries. The diversity and complexity of rights and powers over companies in the EU justifies the creation of an attestation that allows the identification of the persons that have a statutory right over the company.
 
 Thanks to the work of Business Registers participating in EWC we were able to agree on a simple attribute list according to the data availability in the registries and the reality of the national usages and requirements.
 
@@ -34,7 +34,7 @@ The Signatory Rights attestation will be used by companies in the EWC pilots wit
 
 ### 1.3 Goal of the Signatory Rights attestation
 
-The goal of the Signatory Rights attestation is to identify with no possible doubt the legal or natural person, registered in the National Business Registry, who have a full signatory right defined by national law to engage a company. This attestation does not allow any limitation of this right, except the possible necessity to act jointly with another Signatory in order to engage the company. This unique rule is not used in EWC and will only allow signatory to act alone.
+The goal of the Signatory Rights attestation is to clearly identify the legal or natural person, registered in the National Business Registry, who has full signatory right defined by national law to engage a company. This attestation does not allow any limitation of this right, except the possible necessity to act jointly with another Signatory in order to engage the company. This unique rule is not used in EWC and will only allow signatory to act alone.
 ### 1.4 Key words
 
 This document uses the capitalized key words 'SHALL', 'SHOULD' and 'MAY' as specified in [RFC 2119], i.e., to indicate requirements, recommendations and options specified in this document.
@@ -73,7 +73,8 @@ For businesses, a legal representative can be a director, officer, or another pe
 
 **Signatory Rights**  : the authority or power granted to an individual or entity to legally bind an organization or company by signing contracts, agreements, or other formal documents. This authority can be granted to a specific person, such as an executive, director, or authorized representative, and can be either individual (where one person alone can sign) or joint (where multiple individuals are required to sign together). Signatory Rights are important because they ensure that any commitments made by the organization are legally valid and enforceable.
 
-The terms and scope of Signatory Rights are usually outlined in the organization's internal governance documents, such as its bylaws, and can vary based on the level of responsibility and the nature of the agreements being signed.
+**Post** : job title of a person in a company
+
 ## 2 Signatory Rights Issuance process
 
 In the EWC context, a generic attestation issuance process has been described by wallet providers in the pilots. Those controls and generic steps are described in [RFC-001](https://github.com/EWC-consortium/eudi-wallet-rfcs/blob/main/ewc-rfc001-issue-verifiable-credential.md).
@@ -82,7 +83,7 @@ While different business registries have national processes, there is an agreeme
 
 - The Signatory Rights attestation can only be requested by the signatory himself with a presentation of a high level of insurance PID attestation. Therefore this attestation can only be issued to a EUDI valid wallet (organizational or natural).
 
-- The signatory rights attestation can only refer to one Signatory
+- The signatory rights attestation can only refer to one Signatory in the context of this pilot.
 
 In the EWC pilot context, the Signatory rights attestation can be issued with any identity attestation presentation and either to an organizational wallet or a natural person wallet
 
@@ -103,7 +104,7 @@ Here is a table with all the attributes from the provided JSON schema, including
 |----------------------|-----------------------------------------------------------------------------|----------|
 | legal_person_name    | Official current legal person name as registered in the business register.   | Yes      |
 | legal_person_id      | Unique id for organisations in EUID structure.                               | Yes      |
-| signatory_rights     | Information about the person and their signatory right about the legal entity. | Yes      |
+| signatory_rights     | This object represents information about a natural person’s authority to sign legally binding contracts, agreements, or documents on behalf of an organization or company. | Yes      |
 | full_name            | Full name of the physical person representing the company.                   | Yes      |
 | date_of_birth        | Date of birth of the physical person representing the company.               | Yes      |
 | nationality          | Nationality of the physical person representing the company.                 | No       |
@@ -178,7 +179,7 @@ Authentic Sources that are company registration offices need to accept each othe
 - The issuer of the Signatory Rights SHALL be responsible for its revocation.
 
 ### 5.2 Trust a signature or seal over a Signatory Rights
-To trust a signature or seal over a Signatory Rights, the Relying Party needs a mechanism to validate that the public key it uses to verify that signature or seal is trusted. OpenID4VP provides such mechanisms. However, additional details need to be analyzed to fully specify these mechanisms for Signatory Rights within the EUDI Wallet ecosystem. It is assumed that this will be part of a detailed specification from a standard organization.
+To trust a signature or seal over a Signatory Rights, the Relying Party needs a mechanism to validate that the public key it uses to verify that signature or seal is trusted. OpenID4VP provides such mechanisms. However, additional details need to be analyzed to fully specify these mechanisms for Signatory Rights within the EUDI Wallet ecosystem. It is assumed that this will be part of a detailed specification from a standardization organization.
 
 ### 5.3 Signatory Rights Provider Trusted List
 For authenticating Signatory Rights, trust anchors will be used that are present in a SI Signatory Rights Provider Trusted List.
